@@ -39,14 +39,12 @@ async function run() {
 
 
     app.get('/task', async (req, res) => {
-      const cursor = taskCollection.find()
-      const result = await cursor.toArray();
+      const result = await taskCollection.find().toArray();
       res.send(result);
     })
     app.get('/users', async (req, res) => {
-      const cursor = userCollection.find()
-      const result = await cursor.toArray();
-      res.send(result);
+      const users = await userCollection.find().toArray();
+      res.send(users);
     })
 
     app.post('/users', async (req, res) => {
